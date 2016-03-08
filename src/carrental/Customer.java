@@ -10,5 +10,25 @@ package carrental;
  * @author 12dow_000
  */
 public class Customer {
+    private String name;
+    private String phone;
+    private String address;
     
+    public Customer(String Name, String Phone, String Address){
+        this.name = Name;
+        this.phone = Phone;
+        this.address = Address;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public String getPhone(){
+        return this.phone;
+    }
+    
+    public String getAddress(){
+        return this.address;
+    }
 }
