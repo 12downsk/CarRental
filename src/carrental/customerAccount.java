@@ -45,9 +45,9 @@ public class customerAccount extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText(" ");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Search");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -62,7 +62,7 @@ public class customerAccount extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Rent Selected");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,7 +97,7 @@ public class customerAccount extends javax.swing.JFrame {
 
         customersTabFrame.addTab("Find Car", jPanel1);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Return Selected");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
