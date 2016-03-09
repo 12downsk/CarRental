@@ -13,6 +13,7 @@ public class Customer {
     private String name;
     private String phone;
     private String address;
+    private Rental rentals[];
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
@@ -31,4 +32,17 @@ public class Customer {
     public String getAddress(){
         return this.address;
     }
+    
+    public void newRental()
+    {
+        
+    }
+    
+    public Rental[] getRentals()
+    {
+        
+        return rentals;
+    }
+    
+    
 }

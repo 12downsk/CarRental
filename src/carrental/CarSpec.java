@@ -23,4 +23,19 @@ public class CarSpec {
         this.size = size;
     }
     
+    public String getMake(){
+        return make;
+    }
+    
+    public String getModel(){
+        return model;
+    }
+    
+    public int getYear(){
+        return year;
+    }
+    
+    public Enum getSize(){
+        return size;
+    }
 }
