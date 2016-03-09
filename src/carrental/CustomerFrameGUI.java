@@ -5,6 +5,8 @@
  */
 package carrental;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Adam
@@ -43,6 +45,12 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         rentcarButton.setText("Rent Car");
 
         rentedcarsButton.setText("Rented Cars");
+
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,9 +103,19 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
+        searchTextField.setText("");
+    }//GEN-LAST:event_searchTextFieldActionPerformed
+
     
-    private void searchButtonAction(java.awt.event.ActionEvent evt){
-        
+    private ArrayList searchButtonAction(java.awt.event.ActionEvent evt){
+        ArrayList<Customer> results = new ArrayList();
+        for(int i =0; i < clients.size(); i++)
+            if(clients.get(i).getName().contains("bob"))
+            {
+                results.add(clients.get(i));
+            }
+        return results;
     }
     
     private void RentCarButtonAction(java.awt.event.ActionEvent evt){
