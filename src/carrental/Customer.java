@@ -50,6 +50,14 @@ public class Customer {
         return rentals;
     }
     
+    public ArrayList displayData()
+    {
+        ArrayList<String> r = new ArrayList();
+        r.add(name);
+        r.add(phone);
+        r.add(address);
+        return r;
+    }
     
     
 }

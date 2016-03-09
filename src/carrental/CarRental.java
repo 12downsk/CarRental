@@ -6,6 +6,9 @@
 package carrental;
 
 import java.util.ArrayList;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -27,6 +30,6 @@ public class CarRental {
         cars.add(new CarSpec("Chevy","Silverado",2016,Size.LARGE));
         
         
-    }
-    
+       
+    }    
 }

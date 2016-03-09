@@ -5,6 +5,7 @@
  */
 package carrental;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,14 +27,14 @@ public class Car {
     }
     
         
-    public Map getInfo(){
-        Map carInfo = new HashMap();
+    public ArrayList getInfo(){
+        ArrayList carInfo = new ArrayList();
         
-        carInfo.put("Make", car.getMake());
-        carInfo.put("Model", car.getModel());
-        carInfo.put("Year", car.getYear());
-        carInfo.put("Size", car.getSize());
-        carInfo.put("ID", ID);
+        carInfo.add(ID);
+        carInfo.add(car.getMake());
+        carInfo.add(car.getModel());
+        carInfo.add(car.getYear());
+        carInfo.add(car.getSize());
         
         return carInfo;
     }

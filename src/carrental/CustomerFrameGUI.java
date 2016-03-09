@@ -5,6 +5,8 @@
  */
 package carrental;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Adam
@@ -16,10 +18,13 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
      * Creates new form CustomerFrameGUI2
      */
     public CustomerFrameGUI() {
-        
         initComponents();
+        String col[] = {"Name","Telephone","Address"};
+        
+        
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +39,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         rentedcarsButton = new javax.swing.JButton();
         searchTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        customerModel = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,7 +49,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
         rentedcarsButton.setText("Rented Cars");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        customerModel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -55,7 +60,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
                 "Name", "Telephone", "Address"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(customerModel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,8 +152,8 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable customerModel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton rentcarButton;
     private javax.swing.JButton rentedcarsButton;
     private javax.swing.JButton searchButton;
