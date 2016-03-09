@@ -10,18 +10,14 @@ package carrental;
  * @author Adam
  */
 public class CustomersFrameGUI extends javax.swing.JFrame {
-    private Customer bob;
-    private Customer joe;
-    private Customer steve;
+    
     
 
     /**
      * Creates new form CustomersFrameGUI
      */
     public CustomersFrameGUI() {
-        bob = new Customer("Bob","816-555-555","123 Main St");
-        joe = new Customer("Joe","913-555-555","321 Oak St");
-        steve = new Customer("Steve","321-555-5555","258 Cherry St");
+        
         initComponents();
     }
 

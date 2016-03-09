@@ -17,6 +17,7 @@ public class Customer {
     private String phone;
     private String address;
     private ArrayList<Rental> rentals;
+    private ArrayList<Rental> returned;
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
