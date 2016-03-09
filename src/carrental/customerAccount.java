@@ -12,9 +12,9 @@ package carrental;
 public class customerAccount extends javax.swing.JFrame {
 
     Customer c;
-    public customerAccount(Customer c) {
+    public customerAccount() {
         initComponents();
-        this.c = c;
+        //this.c = c;
     }
     String colFind[] = {"Select", "ID","Make","Model","Year","Size"};
     String colRented[] = {"Select","Make","Model","Year","Rented"};
