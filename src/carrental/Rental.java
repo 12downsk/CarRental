@@ -15,12 +15,19 @@ public class Rental {
     private Calendar rentDate;
     private Calendar returnDate;
     private Enum status;
+    private Car c;
     
-    public Rental()
+    public Rental(Calendar rentDate, Calendar returnDate, Enum status, Car c)
     {
-        
+        this.rentDate = rentDate;
+        this.returnDate = returnDate;
+        this.status = status;
+        this.c = c;
     }
     
-    
+    public void changeReturnDate(Calendar newReturnDate)
+    {
+                
+    }
     
 }

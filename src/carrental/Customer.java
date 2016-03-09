@@ -5,6 +5,9 @@
  */
 package carrental;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 /**
  *
  * @author 12dow_000
@@ -13,7 +16,7 @@ public class Customer {
     private String name;
     private String phone;
     private String address;
-    private Rental rentals[];
+    private ArrayList<Rental> rentals;
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
@@ -33,16 +36,19 @@ public class Customer {
         return this.address;
     }
     
-    public void newRental()
+    public void newRental(Calendar rentDate, Calendar returnDate, String ID, CarSpec s, Status status)
     {
-        
+        Car c = new Car(ID, s);
+        Rental r = new Rental(rentDate,returnDate,status, c);
+        rentals.add(r);
     }
     
-    public Rental[] getRentals()
+    public ArrayList getRentals()
     {
         
         return rentals;
     }
+    
     
     
 }
