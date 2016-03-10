@@ -49,7 +49,17 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
         rentedcarsButton.setText("Rented Cars");
 
+<<<<<<< HEAD
         customerModel.setModel(new javax.swing.table.DefaultTableModel(
+=======
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextFieldActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+>>>>>>> origin/master
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -100,9 +110,19 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
+        searchTextField.setText("");
+    }//GEN-LAST:event_searchTextFieldActionPerformed
+
     
-    private void searchButtonAction(java.awt.event.ActionEvent evt){
-        
+    private ArrayList searchButtonAction(java.awt.event.ActionEvent evt){
+        ArrayList<Customer> results = new ArrayList();
+        for(int i =0; i < clients.size(); i++)
+            if(clients.get(i).getName().contains("bob"))
+            {
+                results.add(clients.get(i));
+            }
+        return results;
     }
     
     private void RentCarButtonAction(java.awt.event.ActionEvent evt){
