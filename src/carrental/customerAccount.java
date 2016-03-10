@@ -5,6 +5,8 @@
  */
 package carrental;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 12dow_000
@@ -225,7 +227,7 @@ public class customerAccount extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new customerAccount().setVisible(true);
+                //new customerAccount().setVisible(true);
             }
         });
     }

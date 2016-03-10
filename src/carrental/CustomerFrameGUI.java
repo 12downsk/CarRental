@@ -6,22 +6,23 @@
 package carrental;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Adam
  */
 public class CustomerFrameGUI extends javax.swing.JFrame {
-
-
+    String col[] = {"Name","Telephone","Address"};
+    private ArrayList<Customer> clients = new ArrayList();
     /**
      * Creates new form CustomerFrameGUI2
      */
-    public CustomerFrameGUI() {
+    public CustomerFrameGUI(ArrayList clients) {
         initComponents();
-        String col[] = {"Name","Telephone","Address"};
         
-        
+        this.clients = clients;
+        updateJTable(jTable1,clients);
     }
     
     
@@ -39,7 +40,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         rentedcarsButton = new javax.swing.JButton();
         searchTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        customerModel = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,9 +50,6 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
         rentedcarsButton.setText("Rented Cars");
 
-
-        customerModel.setModel(new javax.swing.table.DefaultTableModel(
-
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTextFieldActionPerformed(evt);
@@ -59,7 +57,6 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -70,7 +67,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
                 "Name", "Telephone", "Address"
             }
         ));
-        jScrollPane1.setViewportView(customerModel);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,6 +122,18 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         return results;
     }
     
+    private void updateJTable(javax.swing.JTable jtable, ArrayList<Customer> clients){
+        DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
+        for(int j=tModel.getRowCount()-1; j>-1; j--)
+            tModel.removeRow(j);
+        
+        for(int i=0; i < clients.size(); i++)
+        {
+            Object[] data = {clients.get(i).getName(), clients.get(i).getPhone(), clients.get(i).getAddress()};
+            tModel.addRow(data);
+        }
+    }
+    
     private void RentCarButtonAction(java.awt.event.ActionEvent evt){
         
     }
@@ -166,14 +175,14 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CustomerFrameGUI().setVisible(true);
+                //new CustomerFrameGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable customerModel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton rentcarButton;
     private javax.swing.JButton rentedcarsButton;
     private javax.swing.JButton searchButton;

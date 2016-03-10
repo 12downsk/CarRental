@@ -29,7 +29,8 @@ public class CarRental {
         cars.add(new CarSpec("Ford","Explorer",2012,Size.MIDSIZE));
         cars.add(new CarSpec("Chevy","Silverado",2016,Size.LARGE));
         
-        
+        CustomerFrameGUI w = new CustomerFrameGUI(clients);
+        w.setVisible(true);
        
     }    
 }
