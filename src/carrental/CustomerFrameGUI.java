@@ -49,9 +49,9 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
         rentedcarsButton.setText("Rented Cars");
 
-<<<<<<< HEAD
+
         customerModel.setModel(new javax.swing.table.DefaultTableModel(
-=======
+
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTextFieldActionPerformed(evt);
@@ -59,7 +59,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
->>>>>>> origin/master
+
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
