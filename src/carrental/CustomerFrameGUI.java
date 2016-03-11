@@ -66,6 +66,11 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         });
 
         rentedcarsButton.setText("Rented Cars");
+        rentedcarsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentedcarsButtonActionPerformed(evt);
+            }
+        });
 
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +143,12 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         Frame2.setVisible(true);
             
     }//GEN-LAST:event_rentcarButtonActionPerformed
+
+    private void rentedcarsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentedcarsButtonActionPerformed
+        // TODO add your handling code here:
+        customerAccount Frame2Tab2 = new customerAccount(this.cars);
+        Frame2Tab2.setVisible(true);
+    }//GEN-LAST:event_rentedcarsButtonActionPerformed
     
     
     private ArrayList searchButtonAction(){
@@ -158,13 +169,6 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
             Object[] data = {clients.get(i).getName(), clients.get(i).getPhone(), clients.get(i).getAddress()};
             tModel.addRow(data);
         }
-    }
-    
-  
-
-    private void RentedCarsButtonAction(java.awt.event.ActionEvent evt){
-        // jPanel2 = Rented Cars Tab
-         this.customeraccount.setVisible(true);
     }
     
     
