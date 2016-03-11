@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Adam
  */
 public class CustomerFrameGUI extends javax.swing.JFrame {
+    private customerAccount customeraccount;
+    
     String col[] = {"Name","Telephone","Address"};
     private ArrayList<Customer> clients = new ArrayList();
     /**
@@ -135,11 +137,13 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     }
     
     private void RentCarButtonAction(java.awt.event.ActionEvent evt){
-        
+        // jPanel1 = Find Car Tab
+         this.customeraccount.setVisible(true);
     }
 
     private void RentedCarsButtonAction(java.awt.event.ActionEvent evt){
-        
+        // jPanel2 = Rented Cars Tab
+         this.customeraccount.setVisible(true);
     }
     
     
