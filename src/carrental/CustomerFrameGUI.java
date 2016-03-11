@@ -18,14 +18,17 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     
     String col[] = {"Name","Telephone","Address"};
     private ArrayList<Customer> clients = new ArrayList();
+    private ArrayList<CarSpec> cars = new ArrayList();
     /**
      * Creates new form CustomerFrameGUI2
      */
-    public CustomerFrameGUI(ArrayList clients) {
+    public CustomerFrameGUI(ArrayList clients, ArrayList cars) {
         initComponents();
         
         this.clients = clients;
+        this.cars = cars;
         updateJTable(jTable1,clients);
+        
         
     }
     
@@ -56,6 +59,11 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         });
 
         rentcarButton.setText("Rent Car");
+        rentcarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentcarButtonActionPerformed(evt);
+            }
+        });
 
         rentedcarsButton.setText("Rented Cars");
 
@@ -124,6 +132,12 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
        ArrayList<Customer> results = searchButtonAction();
        updateJTable(jTable1,results);
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void rentcarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentcarButtonActionPerformed
+        customerAccount Frame2 = new customerAccount(this.cars);
+        Frame2.setVisible(true);
+            
+    }//GEN-LAST:event_rentcarButtonActionPerformed
     
     
     private ArrayList searchButtonAction(){
@@ -146,10 +160,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         }
     }
     
-    private void RentCarButtonAction(java.awt.event.ActionEvent evt){
-        // jPanel1 = Find Car Tab
-         this.customeraccount.setVisible(true);
-    }
+  
 
     private void RentedCarsButtonAction(java.awt.event.ActionEvent evt){
         // jPanel2 = Rented Cars Tab

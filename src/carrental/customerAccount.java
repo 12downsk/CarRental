@@ -6,6 +6,7 @@
 package carrental;
 
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,15 +15,34 @@ import java.util.ArrayList;
 public class customerAccount extends javax.swing.JFrame {
 
     Customer c;
-    public customerAccount() {
+    private ArrayList<CarSpec> cars = new ArrayList();
+    public customerAccount(ArrayList cars) {
         initComponents();
-        //this.c = c;
+        this.cars = cars;
+        updateJTable1(jTable1);
+        
     }
     String colFind[] = {"Select", "ID","Make","Model","Year","Size"};
     String colRented[] = {"Select","Make","Model","Year","Rented"};
     String colReturned[] = {"ID","Make","Model","Year","Rented","Returned"};
     
     
+        
+        
+        
+        
+    
+    private void updateJTable1(javax.swing.JTable jtable){
+        DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
+        for(int j=tModel.getRowCount()-1; j>-1; j--)
+            tModel.removeRow(j);
+        
+        for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
+        {
+            Object[] data = {cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
+            tModel.addRow(data);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

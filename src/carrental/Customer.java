@@ -58,6 +58,9 @@ public class Customer {
         r.add(address);
         return r;
     }
+    public void f(){
+        System.out.println("customer");
+    }
     
     
 }

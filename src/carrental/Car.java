@@ -38,5 +38,8 @@ public class Car {
         
         return carInfo;
     }
+    public void f(){
+        System.out.println("car");
+    }
 }
 

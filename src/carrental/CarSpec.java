@@ -38,4 +38,7 @@ public class CarSpec {
     public Enum getSize(){
         return size;
     }
+    public void f(){
+        System.out.println("carSPEC");
+    }
 }
