@@ -5,6 +5,7 @@
  */
 package carrental;
 
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,6 +26,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         
         this.clients = clients;
         updateJTable(jTable1,clients);
+        
     }
     
     
@@ -47,6 +49,11 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         rentcarButton.setText("Rent Car");
 
@@ -110,17 +117,20 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
-        searchTextField.setText("");
+        
     }//GEN-LAST:event_searchTextFieldActionPerformed
 
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+       ArrayList<Customer> results = searchButtonAction();
+       updateJTable(jTable1,results);
+    }//GEN-LAST:event_searchButtonActionPerformed
     
-    private ArrayList searchButtonAction(java.awt.event.ActionEvent evt){
+    
+    private ArrayList searchButtonAction(){
         ArrayList<Customer> results = new ArrayList();
-        for(int i =0; i < clients.size(); i++)
-            if(clients.get(i).getName().contains("bob"))
-            {
-                results.add(clients.get(i));
-            }
+        String text = searchTextField.getText();
+        clients.parallelStream().filter((cust)->cust.getName().contains(text))
+                .forEach((cust)->results.add(cust));
         return results;
     }
     
