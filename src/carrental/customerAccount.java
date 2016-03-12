@@ -12,10 +12,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 12dow_000
  */
-public class customerAccount extends javax.swing.JFrame {
-    
+public class customerAccount extends javax.swing.JFrame {    
     Customer c;
     private ArrayList<CarSpec> cars = new ArrayList();
+    
+    
     public customerAccount(ArrayList cars) {
         initComponents();
         this.cars = cars;
@@ -23,15 +24,12 @@ public class customerAccount extends javax.swing.JFrame {
         customerInfoLabel();
         
     }
+    
     String colFind[] = {"Select", "ID","Make","Model","Year","Size"};
     String colRented[] = {"Select","Make","Model","Year","Rented"};
     String colReturned[] = {"ID","Make","Model","Year","Rented","Returned"};
     
     
-        
-        
-        
-        
     
     private void updateJTable1(javax.swing.JTable jtable){
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
@@ -40,13 +38,13 @@ public class customerAccount extends javax.swing.JFrame {
         
         for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
+            Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
             tModel.addRow(data);
         }
     }
     
     private void customerInfoLabel(){
-        this.customerName.setText(Customer.class.getName());
+        this.customerName.setText(Customer.class.getName()+"'s Account");
     }
     
 
@@ -78,13 +76,13 @@ public class customerAccount extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Make", "Model", "Year", "Size"
+                "ID", "Make", "Model", "Year", "Size"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
