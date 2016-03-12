@@ -13,13 +13,14 @@ import javax.swing.table.DefaultTableModel;
  * @author 12dow_000
  */
 public class customerAccount extends javax.swing.JFrame {
-
+    
     Customer c;
     private ArrayList<CarSpec> cars = new ArrayList();
     public customerAccount(ArrayList cars) {
         initComponents();
         this.cars = cars;
         updateJTable1(jTable1);
+        customerInfoLabel();
         
     }
     String colFind[] = {"Select", "ID","Make","Model","Year","Size"};
@@ -43,6 +44,12 @@ public class customerAccount extends javax.swing.JFrame {
             tModel.addRow(data);
         }
     }
+    
+    private void customerInfoLabel(){
+        this.customerName.setText(Customer.class.getName());
+    }
+    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -77,7 +84,7 @@ public class customerAccount extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Make", "Model", "Year", "Size"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -121,13 +128,13 @@ public class customerAccount extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Select", "Make", "Model", "Year", "Rented"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -159,13 +166,13 @@ public class customerAccount extends javax.swing.JFrame {
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Make", "Model", "Year", "Rented", "Returned"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
