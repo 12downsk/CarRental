@@ -146,7 +146,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
     private void rentedcarsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentedcarsButtonActionPerformed
         // TODO add your handling code here:
-        customerAccount Frame3 = new customerAccount(this.cars,1);
+        customerAccount Frame3 = new customerAccount(this.cars);
         Frame3.setVisible(true);
     }//GEN-LAST:event_rentedcarsButtonActionPerformed
     
