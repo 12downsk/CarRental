@@ -20,14 +20,14 @@ public class customerAccount extends javax.swing.JFrame {
     public customerAccount(ArrayList cars) {
         initComponents();
         this.cars = cars;
-        updateJTable1(jTable1);
+        updateJTable1(carTable);
         customerInfoLabel();
         
     }
     
-    String colFind[] = {"Select", "ID","Make","Model","Year","Size"};
-    String colRented[] = {"Select","Make","Model","Year","Rented"};
-    String colReturned[] = {"ID","Make","Model","Year","Rented","Returned"};
+    String[] colFind = {"Select", "ID","Make","Model","Year","Size"};
+    String[] colRented = {"Select","Make","Model","Year","Rented"};
+    String[] colReturned = {"ID","Make","Model","Year","Rented","Returned"};
     
     
     
@@ -38,7 +38,7 @@ public class customerAccount extends javax.swing.JFrame {
         
         for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
+            Object[] data = {null, cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
             tModel.addRow(data);
         }
     }
@@ -53,78 +53,101 @@ public class customerAccount extends javax.swing.JFrame {
     private void initComponents() {
 
         customersTabFrame = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        findcar_jPanel = new javax.swing.JPanel();
+        searchTextField2 = new javax.swing.JTextField();
+        searchButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        carTable = new javax.swing.JTable();
+        rentSelectedButton = new javax.swing.JButton();
+        rentedcars_jPanel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        rentedcarsTable = new javax.swing.JTable();
+        returnedcars_jPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        returnedcarsTable = new javax.swing.JTable();
         customerName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.setText(" ");
+        searchTextField2.setText(" ");
+        searchTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTextField2ActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Search");
+        searchButton2.setText("Search");
+        searchButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton2ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Make", "Model", "Year", "Size"
+                "Select", "ID", "Make", "Model", "Year", "Size"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
 
-        jButton2.setText("Rent Selected");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(carTable);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        rentSelectedButton.setText("Rent Selected");
+        rentSelectedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentSelectedButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout findcar_jPanelLayout = new javax.swing.GroupLayout(findcar_jPanel);
+        findcar_jPanel.setLayout(findcar_jPanelLayout);
+        findcar_jPanelLayout.setHorizontalGroup(
+            findcar_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(findcar_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(findcar_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                    .addGroup(findcar_jPanelLayout.createSequentialGroup()
+                        .addComponent(searchTextField2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(searchButton2))
+                    .addGroup(findcar_jPanelLayout.createSequentialGroup()
+                        .addComponent(rentSelectedButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        findcar_jPanelLayout.setVerticalGroup(
+            findcar_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(findcar_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(findcar_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(rentSelectedButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        customersTabFrame.addTab("Find Car", jPanel1);
+        customersTabFrame.addTab("Find Car", findcar_jPanel);
 
         jButton3.setText("Return Selected");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        rentedcarsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -134,25 +157,33 @@ public class customerAccount extends javax.swing.JFrame {
             new String [] {
                 "Select", "Make", "Model", "Year", "Rented"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(rentedcarsTable);
+
+        javax.swing.GroupLayout rentedcars_jPanelLayout = new javax.swing.GroupLayout(rentedcars_jPanel);
+        rentedcars_jPanel.setLayout(rentedcars_jPanelLayout);
+        rentedcars_jPanelLayout.setHorizontalGroup(
+            rentedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rentedcars_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(rentedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(rentedcars_jPanelLayout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        rentedcars_jPanelLayout.setVerticalGroup(
+            rentedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rentedcars_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,9 +191,9 @@ public class customerAccount extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        customersTabFrame.addTab("Rented Cars", jPanel2);
+        customersTabFrame.addTab("Rented Cars", rentedcars_jPanel);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        returnedcarsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -173,26 +204,26 @@ public class customerAccount extends javax.swing.JFrame {
                 "ID", "Make", "Model", "Year", "Rented", "Returned"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(returnedcarsTable);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout returnedcars_jPanelLayout = new javax.swing.GroupLayout(returnedcars_jPanel);
+        returnedcars_jPanel.setLayout(returnedcars_jPanelLayout);
+        returnedcars_jPanelLayout.setHorizontalGroup(
+            returnedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(returnedcars_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        returnedcars_jPanelLayout.setVerticalGroup(
+            returnedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(returnedcars_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        customersTabFrame.addTab("Returned Cars", jPanel3);
+        customersTabFrame.addTab("Returned Cars", returnedcars_jPanel);
 
         customerName.setText("jLabel1");
 
@@ -214,13 +245,28 @@ public class customerAccount extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(customerName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(customersTabFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void searchTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextField2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_searchTextField2ActionPerformed
+
+    private void searchButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_searchButton2ActionPerformed
+
+    private void rentSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentSelectedButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_rentSelectedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,20 +304,20 @@ public class customerAccount extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable carTable;
     private javax.swing.JLabel customerName;
     private javax.swing.JTabbedPane customersTabFrame;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JPanel findcar_jPanel;
     private javax.swing.JButton jButton3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton rentSelectedButton;
+    private javax.swing.JTable rentedcarsTable;
+    private javax.swing.JPanel rentedcars_jPanel;
+    private javax.swing.JTable returnedcarsTable;
+    private javax.swing.JPanel returnedcars_jPanel;
+    private javax.swing.JButton searchButton2;
+    private javax.swing.JTextField searchTextField2;
     // End of variables declaration//GEN-END:variables
 }
