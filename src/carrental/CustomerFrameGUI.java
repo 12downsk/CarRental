@@ -27,7 +27,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         
         this.clients = clients;
         this.cars = cars;
-        updateJTable(jTable1,clients);
+        updateJTable(customerTable,clients);
         
         
     }
@@ -47,7 +47,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         rentedcarsButton = new javax.swing.JButton();
         searchTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        customerTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,9 +78,8 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        customerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
@@ -89,7 +88,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
                 "Name", "Telephone", "Address"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(customerTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +134,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
        ArrayList<Customer> results = searchButtonAction();
-       updateJTable(jTable1,results);
+       updateJTable(customerTable,results);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void rentcarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentcarButtonActionPerformed
@@ -146,8 +145,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
 
     private void rentedcarsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentedcarsButtonActionPerformed
         // TODO add your handling code here:
-        customerAccount Frame2Tab2 = new customerAccount(this.cars);
-        Frame2Tab2.setVisible(true);
+       
     }//GEN-LAST:event_rentedcarsButtonActionPerformed
     
     
@@ -210,8 +208,8 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable customerTable;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton rentcarButton;
     private javax.swing.JButton rentedcarsButton;
     private javax.swing.JButton searchButton;
