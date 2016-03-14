@@ -19,6 +19,7 @@ public class datePicker extends javax.swing.JFrame {
     public datePicker(Calendar cal, String enterThis) {
         initComponents();
         this.desc.setText(enterThis);
+        
     }
 
     /**
@@ -117,6 +118,7 @@ public class datePicker extends javax.swing.JFrame {
         cal.set(Calendar.MONTH, month);
         cal.set(Calendar.DATE, day);
         this.setVisible(false);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

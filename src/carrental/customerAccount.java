@@ -112,7 +112,6 @@ public class customerAccount extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        searchTextField2.setText(" ");
         searchTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchTextField2ActionPerformed(evt);
@@ -128,10 +127,7 @@ public class customerAccount extends javax.swing.JFrame {
 
         carTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Select", "ID", "Make", "Model", "Year", "Size"
@@ -307,7 +303,8 @@ public class customerAccount extends javax.swing.JFrame {
 
     private void rentSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentSelectedButtonActionPerformed
         
-        for(int i = 0; i < this.carTable.getSelectedRows().length; i++){
+        for(int i = 0; i < this.carTable.getRowCount(); i++){
+            //if(this.carTable.getSelectedRows())
             Calendar cal = Calendar.getInstance();
             datePicker w = new datePicker(cal,"Enter Rent Date");
             w.setVisible(true);

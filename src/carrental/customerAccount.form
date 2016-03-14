@@ -102,9 +102,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="searchTextField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value=" "/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchTextField2ActionPerformed"/>
               </Events>
@@ -127,7 +124,7 @@
                 <Component class="javax.swing.JTable" name="carTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="6" rowCount="4">
+                      <Table columnCount="6" rowCount="0">
                         <Column editable="true" title="Select" type="java.lang.Boolean"/>
                         <Column editable="true" title="ID" type="java.lang.Object"/>
                         <Column editable="true" title="Make" type="java.lang.Object"/>
