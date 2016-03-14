@@ -29,6 +29,10 @@ public class Rental {
         return status;
     }
     
+    public void setStatus(Status s){
+        this.status = s;
+    }
+    
     public Car getCar(){
         return c;
     }

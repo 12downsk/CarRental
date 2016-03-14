@@ -43,10 +43,11 @@ public class Customer {
         rentals.add(new Rental(rentDate,status, c));
     }
     
-    public void returnedRental(Calendar returnDate, Car c)
+    public void returnedRental(Calendar returnDate, Rental rental)
     {
-        Enum status = Status.RETURNED;
-        returned.add(new Rental(returnDate, status, c));
+        rental.setReturnDate(returnDate);
+        rental.setStatus(Status.RETURNED);
+        
     }
     
     public ArrayList<Rental> getRented()

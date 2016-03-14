@@ -18,7 +18,6 @@ public class customerAccount extends javax.swing.JFrame {
     private ArrayList<Car> cars = new ArrayList();
     
     
-    
     public customerAccount(ArrayList cars, Customer c) {
         initComponents();
         this.cars = cars;
@@ -316,7 +315,9 @@ public class customerAccount extends javax.swing.JFrame {
             w.setVisible(true);
             c.newRental(cal, cars.get(selected[i]));
             cars.remove(cars.get(selected[i]));
+            updateJTable1(carTable,cars);
             updateJTable2(rentedcarsTable);
+            updateJTable3(returnedcarsTable);
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
 
@@ -330,8 +331,13 @@ public class customerAccount extends javax.swing.JFrame {
             Calendar cal = Calendar.getInstance();
             datePicker w = new datePicker(cal,"Enter Return Date");
             w.setVisible(true);
-            c.returnedRental(cal, cars.get(selected[i]));
-            cars.remove(cars.get(selected[i]));
+            c.returnedRental(cal, c.getRented().get(selected[i]));
+            cars.add(c.getReturned().get(i).getCar());
+
+//Rented().get(selected[i]).getCar());
+            
+            updateJTable1(carTable,cars);
+            updateJTable2(rentedcarsTable);
             updateJTable3(returnedcarsTable);
         }
         
