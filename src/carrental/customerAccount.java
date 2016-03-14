@@ -318,8 +318,8 @@ public class customerAccount extends javax.swing.JFrame {
     private ArrayList searchButtonAction(){
         ArrayList<Car> results = new ArrayList();
         String text = searchTextField2.getText();
-        cars.parallelStream().filter((cust)->cust.getMake().contains(text))
-                .forEach((cust)->results.add(cust));
+        cars.parallelStream().filter((car)->car.getMake().contains(text))
+                .forEach((car)->results.add(car));
         return results;
     }
     
