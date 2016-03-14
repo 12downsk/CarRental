@@ -139,7 +139,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame
 
     private void rentcarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentcarButtonActionPerformed
         int selected = this.customerTable.getSelectedRow();
-        customerAccount Frame2 = new customerAccount(this.cars,clients.get(selected));
+        customerAccount Frame2 = new customerAccount(this.cars,clients.get(selected),0);
         Frame2.setVisible(true);
             
     }//GEN-LAST:event_rentcarButtonActionPerformed
@@ -147,7 +147,7 @@ public class CustomerFrameGUI extends javax.swing.JFrame
     private void rentedcarsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentedcarsButtonActionPerformed
         // TODO add your handling code here:
         int selected = this.customerTable.getSelectedRow();
-        customerAccount Frame3 = new customerAccount(this.cars, clients.get(selected));
+        customerAccount Frame3 = new customerAccount(this.cars, clients.get(selected),1);
         Frame3.setVisible(true);
     }//GEN-LAST:event_rentedcarsButtonActionPerformed
     

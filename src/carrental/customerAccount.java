@@ -18,7 +18,7 @@ public class customerAccount extends javax.swing.JFrame {
     private ArrayList<Car> cars = new ArrayList();
     
     
-    public customerAccount(ArrayList cars, Customer c) {
+    public customerAccount(ArrayList cars, Customer c, int startingTab) {
         initComponents();
         this.cars = cars;
         this.c = c;
@@ -26,7 +26,7 @@ public class customerAccount extends javax.swing.JFrame {
         updateJTable2(rentedcarsTable);
         updateJTable3(returnedcarsTable);
         customerInfoLabel();
-        
+        this.customersTabFrame.setSelectedIndex(startingTab);
     }
     
     String[] colFind = {"Select", "ID","Make","Model","Year","Size"};
