@@ -39,7 +39,7 @@ public class CarRental {
         inventory.add(new Car("1005",cars.get(2)));
         inventory.add(new Car("1006",cars.get(2)));
         
-        CustomerFrameGUI w = new CustomerFrameGUI(clients, cars);
+        CustomerFrameGUI w = new CustomerFrameGUI(clients, inventory);
         w.setVisible(true);
        
     }    

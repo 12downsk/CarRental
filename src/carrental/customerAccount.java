@@ -21,6 +21,8 @@ public class customerAccount extends javax.swing.JFrame {
         initComponents();
         this.cars = cars;
         updateJTable1(carTable);
+        updateJTable2(rentedcarsTable);
+        updateJTable3(returnedcarsTable);
         customerInfoLabel();
         
     }
@@ -38,13 +40,35 @@ public class customerAccount extends javax.swing.JFrame {
         
         for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {null,cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
+            Object[] data = {null,cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
+            tModel.addRow(data);
+        }
+    }
+    private void updateJTable2(javax.swing.JTable jtable){
+        DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
+        for(int j=tModel.getRowCount()-1; j>-1; j--)
+            tModel.removeRow(j);
+        
+        for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
+        {
+            Object[] data = {null,cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null};
+            tModel.addRow(data);
+        }
+    }
+    private void updateJTable3(javax.swing.JTable jtable){
+        DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
+        for(int j=tModel.getRowCount()-1; j>-1; j--)
+            tModel.removeRow(j);
+        
+        for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
+        {
+            Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null,null};
             tModel.addRow(data);
         }
     }
     
     private void customerInfoLabel(){
-        this.customerName.setText(Customer.class.getName()+"'s Account");
+        this.customerName.setText(c.getName()+ "'s Account"); //this.customerName.setText(Customer.class.getName()+"'s Account");
     }
     
 
