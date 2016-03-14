@@ -26,18 +26,10 @@ public class Car {
         return this.ID;
     }
     
-        
-    public ArrayList getInfo(){
-        ArrayList carInfo = new ArrayList();
-        
-        carInfo.add(ID);
-        carInfo.add(car.getMake());
-        carInfo.add(car.getModel());
-        carInfo.add(car.getYear());
-        carInfo.add(car.getSize());
-        
-        return carInfo;
+    public CarSpec getSpec(){
+        return this.car;
     }
+        
     public void f(){
         System.out.println("car");
     }
