@@ -47,6 +47,7 @@ public class customerAccount extends javax.swing.JFrame {
             tModel.addRow(data);
         }
     }
+    
     private void updateJTable2(javax.swing.JTable jtable){
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
@@ -102,7 +103,7 @@ public class customerAccount extends javax.swing.JFrame {
         carTable = new javax.swing.JTable();
         rentSelectedButton = new javax.swing.JButton();
         rentedcars_jPanel = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        returnButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         rentedcarsTable = new javax.swing.JTable();
         returnedcars_jPanel = new javax.swing.JPanel();
@@ -183,10 +184,10 @@ public class customerAccount extends javax.swing.JFrame {
 
         customersTabFrame.addTab("Find Car", findcar_jPanel);
 
-        jButton3.setText("Return Selected");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        returnButton.setText("Return Selected");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                returnButtonActionPerformed(evt);
             }
         });
 
@@ -220,7 +221,7 @@ public class customerAccount extends javax.swing.JFrame {
                 .addGroup(rentedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(rentedcars_jPanelLayout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(returnButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -228,7 +229,7 @@ public class customerAccount extends javax.swing.JFrame {
             rentedcars_jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rentedcars_jPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
+                .addComponent(returnButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -319,10 +320,24 @@ public class customerAccount extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
+    
+        int selected[] = this.rentedcarsTable.getSelectedRows();
+        for(int i = 0; i < this.rentedcarsTable.getSelectedRows().length; i++)
+        {
+            
+            Calendar cal = Calendar.getInstance();
+            datePicker w = new datePicker(cal,"Enter Return Date");
+            w.setVisible(true);
+            c.returnedRental(cal, cars.get(selected[i]));
+            cars.remove(cars.get(selected[i]));
+            updateJTable3(returnedcarsTable);
+        }
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_returnButtonActionPerformed
+    
+    
     private ArrayList searchButtonAction(){
         ArrayList<Car> results = new ArrayList();
         String text = searchTextField2.getText();
@@ -375,13 +390,13 @@ public class customerAccount extends javax.swing.JFrame {
     private javax.swing.JLabel customerName;
     private javax.swing.JTabbedPane customersTabFrame;
     private javax.swing.JPanel findcar_jPanel;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton rentSelectedButton;
     private javax.swing.JTable rentedcarsTable;
     private javax.swing.JPanel rentedcars_jPanel;
+    private javax.swing.JButton returnButton;
     private javax.swing.JTable returnedcarsTable;
     private javax.swing.JPanel returnedcars_jPanel;
     private javax.swing.JButton searchButton2;

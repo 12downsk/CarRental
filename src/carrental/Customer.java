@@ -17,6 +17,7 @@ public class Customer {
     private String phone;
     private String address;
     private ArrayList<Rental> rentals = new ArrayList();
+    private ArrayList<Rental> returns = new ArrayList();
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
@@ -40,6 +41,12 @@ public class Customer {
     {
         Enum status = Status.RENTED;
         rentals.add(new Rental(rentDate,status, c));
+    }
+    
+    public void returnedRental(Calendar returnDate, Car c)
+    {
+        Enum status = Status.RETURNED;
+        returns.add(new Rental(returnDate, status, c));
     }
     
     public ArrayList<Rental> getRented()

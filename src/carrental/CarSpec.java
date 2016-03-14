@@ -10,17 +10,23 @@ package carrental;
  * @author 12dow_000
  */
 public class CarSpec {
-    private  String make;
+    private int ID;
+    private String make;
     private String model;
     private int year;
     private Enum size;
     
     
     public CarSpec(String make, String model, int year, Enum size){
+        this.ID = ID;
         this.make = make;
         this.model = model;
         this.year = year;
         this.size = size;
+    }
+    
+    public int getID(){
+        return ID;
     }
     
     public String getMake(){

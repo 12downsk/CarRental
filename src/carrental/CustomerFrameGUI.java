@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Adam
  */
-public class CustomerFrameGUI extends javax.swing.JFrame {
+public class CustomerFrameGUI extends javax.swing.JFrame 
+{
     private customerAccount customeraccount;
     
     String col[] = {"Name","Telephone","Address"};
@@ -22,15 +23,13 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     /**
      * Creates new form CustomerFrameGUI2
      */
-    public CustomerFrameGUI(ArrayList clients, ArrayList cars) {
+    public CustomerFrameGUI(ArrayList clients, ArrayList cars) 
+    {
         initComponents();
         this.clients = clients;
         this.cars = cars;
         updateJTable(customerTable,clients);
         int row = customerTable.getSelectedRow();
-       
-        
-        
     }
     
     
@@ -153,7 +152,8 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_rentedcarsButtonActionPerformed
     
     
-    private ArrayList searchButtonAction(){
+    private ArrayList searchButtonAction()
+    {
         ArrayList<Customer> results = new ArrayList();
         String text = searchTextField.getText();
         clients.parallelStream().filter((cust)->cust.getName().contains(text))
@@ -161,7 +161,8 @@ public class CustomerFrameGUI extends javax.swing.JFrame {
         return results;
     }
     
-    private void updateJTable(javax.swing.JTable jtable, ArrayList<Customer> clients){
+    private void updateJTable(javax.swing.JTable jtable, ArrayList<Customer> clients)
+    {
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);

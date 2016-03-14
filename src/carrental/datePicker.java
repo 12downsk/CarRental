@@ -37,7 +37,7 @@ public class datePicker extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        submit_date_button = new javax.swing.JButton();
         desc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,10 +48,10 @@ public class datePicker extends javax.swing.JFrame {
 
         jLabel3.setText("Enter Day");
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        submit_date_button.setText("Submit");
+        submit_date_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                submit_date_buttonActionPerformed(evt);
             }
         });
 
@@ -66,7 +66,7 @@ public class datePicker extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(submit_date_button))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -102,14 +102,14 @@ public class datePicker extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(submit_date_button)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void submit_date_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submit_date_buttonActionPerformed
         int year = Integer.parseInt(this.year.getText());
         int month = Integer.parseInt(this.month.getText());
         int day = Integer.parseInt(this.day.getText());
@@ -119,7 +119,7 @@ public class datePicker extends javax.swing.JFrame {
         cal.set(Calendar.DATE, day);
         this.setVisible(false);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_submit_date_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,11 +159,11 @@ public class datePicker extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField day;
     private javax.swing.JLabel desc;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField month;
+    private javax.swing.JButton submit_date_button;
     private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 }
