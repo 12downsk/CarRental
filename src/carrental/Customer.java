@@ -36,7 +36,7 @@ public class Customer {
         return this.address;
     }
     
-    public void newRental(Calendar rentDate, Calendar returnDate, Car c)
+    public void newRental(Calendar rentDate, Car c)
     {
         Enum status = Status.RENTED;
         rentals.add(new Rental(rentDate,status, c));

@@ -310,7 +310,7 @@ public class customerAccount extends javax.swing.JFrame {
             Calendar cal = Calendar.getInstance();
             datePicker w = new datePicker(cal,"Enter Rent Date");
             w.setVisible(true);
-            c.newRental(cal, null, cars.get(i));
+            c.newRental(cal, cars.get(i));
             updateJTable2(rentedcarsTable);
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
