@@ -49,7 +49,8 @@ public class customerAccount extends javax.swing.JFrame {
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
-        
+        if(c.getRented().isEmpty())
+            return;
         for(int i=0; i < c.getRented().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
             
@@ -65,7 +66,8 @@ public class customerAccount extends javax.swing.JFrame {
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
-        
+        if(c.getRented().isEmpty())
+            return;
         for(int i=0; i < c.getReturned().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
             //Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null,null};

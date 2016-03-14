@@ -50,14 +50,6 @@ public class CarRental {
         inventory.add(new Car("1005",cars.get(2)));
         inventory.add(new Car("1006",cars.get(2)));
         
-        int k = 0;
-        for(int i=0; i<3; i++){
-            for(int j=0; j<clients.size();j++){
-                k++;
-                clients.get(j).newRental(cal, cal2, inventory.get(1),Status.RENTED);
-            }
-        }
-        
         CustomerFrameGUI w = new CustomerFrameGUI(clients, inventory);
         w.setVisible(true);
        
