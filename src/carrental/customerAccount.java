@@ -38,7 +38,7 @@ public class customerAccount extends javax.swing.JFrame {
         
         for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {null,cars.get(i).getSpec().getMake(), cars.get(i).getSpec().getModel(), cars.get(i).getSpec().getYear(), cars.get(i).getSpec().getSize()};
+            Object[] data = {null,cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(), cars.get(i).getSize()};
             tModel.addRow(data);
         }
     }
