@@ -6,6 +6,7 @@
 package carrental;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -23,6 +24,16 @@ public class CarRental {
         ArrayList<Customer> clients = new ArrayList();
         ArrayList<CarSpec> cars = new ArrayList();
         ArrayList<Car> inventory = new ArrayList();
+        Calendar cal = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        
+        cal.set(Calendar.YEAR, 2016);
+        cal.set(Calendar.MONTH, 3);
+        cal.set(Calendar.DATE, 10);
+        
+        cal2.set(Calendar.YEAR, 2016);
+        cal2.set(Calendar.MONTH, 3);
+        cal2.set(Calendar.DATE, 13);
         
         clients.add(new Customer("Bob","816-555-555","123 Main St"));
         clients.add(new Customer("Joe","913-555-555","321 Oak St"));
@@ -38,6 +49,14 @@ public class CarRental {
         inventory.add(new Car("1004",cars.get(1)));
         inventory.add(new Car("1005",cars.get(2)));
         inventory.add(new Car("1006",cars.get(2)));
+        
+        int k = 0;
+        for(int i=0; i<3; i++){
+            for(int j=0; j<clients.size();j++){
+                k++;
+                clients.get(j).newRental(cal, cal2, inventory.get(1),Status.RENTED);
+            }
+        }
         
         CustomerFrameGUI w = new CustomerFrameGUI(clients, inventory);
         w.setVisible(true);
