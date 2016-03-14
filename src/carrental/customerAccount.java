@@ -66,10 +66,13 @@ public class customerAccount extends javax.swing.JFrame {
     
     private void updateJTable3(javax.swing.JTable jtable){
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
+        
+        if(c.getReturned().isEmpty())
+            return;
+        //Clear rows
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
-        if(c.getRented().isEmpty())
-            return;
+        //Add in new rows based on rented cars array in customer class
         for(int i=0; i < c.getReturned().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
             //Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null,null};
