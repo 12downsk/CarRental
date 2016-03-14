@@ -17,7 +17,7 @@ public class Customer {
     private String phone;
     private String address;
     private ArrayList<Rental> rentals = new ArrayList();
-    private ArrayList<Rental> returns = new ArrayList();
+    private ArrayList<Rental> returned = new ArrayList();
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
@@ -46,7 +46,7 @@ public class Customer {
     public void returnedRental(Calendar returnDate, Car c)
     {
         Enum status = Status.RETURNED;
-        returns.add(new Rental(returnDate, status, c));
+        returned.add(new Rental(returnDate, status, c));
     }
     
     public ArrayList<Rental> getRented()
@@ -65,7 +65,7 @@ public class Customer {
             if(rentals.get(i).getStatus() == Status.RETURNED)
                 returned.add(rentals.get(i));
         }
-        return rentals;
+        return returned;
     }
     
     public ArrayList displayData()
