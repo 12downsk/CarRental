@@ -314,6 +314,7 @@ public class customerAccount extends javax.swing.JFrame {
             datePicker w = new datePicker(cal,"Enter Rent Date");
             w.setVisible(true);
             c.newRental(cal, cars.get(selected[i]));
+            cars.remove(cars.get(selected[i]));
             updateJTable2(rentedcarsTable);
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
