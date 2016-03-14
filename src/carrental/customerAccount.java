@@ -18,11 +18,12 @@ public class customerAccount extends javax.swing.JFrame {
     private ArrayList<Car> cars = new ArrayList();
     
     
+    
     public customerAccount(ArrayList cars, Customer c) {
         initComponents();
         this.cars = cars;
         this.c = c;
-        updateJTable1(carTable);
+        updateJTable1(carTable, cars);
         updateJTable2(rentedcarsTable);
         updateJTable3(returnedcarsTable);
         customerInfoLabel();
@@ -35,7 +36,7 @@ public class customerAccount extends javax.swing.JFrame {
     
     
     
-    private void updateJTable1(javax.swing.JTable jtable){
+    private void updateJTable1(javax.swing.JTable jtable, ArrayList<Car> cars){
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
@@ -300,8 +301,8 @@ public class customerAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTextField2ActionPerformed
 
     private void searchButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton2ActionPerformed
-        // TODO add your handling code here:
-        
+        ArrayList<Car> results = searchButtonAction();
+        updateJTable1(carTable, results);
     }//GEN-LAST:event_searchButton2ActionPerformed
 
     private void rentSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentSelectedButtonActionPerformed
@@ -314,7 +315,14 @@ public class customerAccount extends javax.swing.JFrame {
             updateJTable2(rentedcarsTable);
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
-
+    private ArrayList searchButtonAction(){
+        ArrayList<Car> results = new ArrayList();
+        String text = searchTextField2.getText();
+        cars.parallelStream().filter((cust)->cust.getMake().contains(text))
+                .forEach((cust)->results.add(cust));
+        return results;
+    }
+    
     /**
      * @param args the command line arguments
      */
