@@ -26,8 +26,20 @@ public class Car {
         return this.ID;
     }
     
-    public CarSpec getSpec(){
-        return this.car;
+    public String getMake(){
+        return this.car.getMake();
+    }
+    
+    public String getModel(){
+        return this.car.getModel();
+    }
+    
+    public int getYear(){
+        return this.car.getYear();
+    }
+    
+    public Enum getSize(){
+        return this.car.getSize();
     }
         
     public void f(){
