@@ -30,4 +30,21 @@ public class Rental {
                 
     }
     
+    public Enum getStatus(){
+        return status;
+    }
+    
+    public Car getCar(){
+        return c;
+    }
+    
+    public String getReturnDate(){
+        return returnDate.toString();
+    }
+    
+    public String getRentDate(){
+        return rentDate.toString();
+    }
+    
+    
 }

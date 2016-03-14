@@ -16,8 +16,7 @@ public class Customer {
     private String name;
     private String phone;
     private String address;
-    private ArrayList<Rental> rentals;
-    private ArrayList<Rental> returned;
+    private ArrayList<Rental> rentals = new ArrayList();
     
     public Customer(String Name, String Phone, String Address){
         this.name = Name;
@@ -37,15 +36,18 @@ public class Customer {
         return this.address;
     }
     
-    public void newRental(Calendar rentDate, Calendar returnDate, String ID, CarSpec s, Status status)
+    public void newRental(Calendar rentDate, Calendar returnDate, Car c, Status status)
     {
-        Car c = new Car(ID, s);
-        Rental r = new Rental(rentDate,returnDate,status, c);
-        rentals.add(r);
+        rentals.add(new Rental(rentDate,returnDate,status, c));
     }
     
-    public ArrayList getRentals()
+    public ArrayList<Rental> getRented()
     {
+        
+        return rentals;
+    }
+    
+    public ArrayList<Rental> getReturned(){
         
         return rentals;
     }

@@ -17,9 +17,10 @@ public class customerAccount extends javax.swing.JFrame {
     private ArrayList<Car> cars = new ArrayList();
     
     
-    public customerAccount(ArrayList cars) {
+    public customerAccount(ArrayList cars, Customer c) {
         initComponents();
         this.cars = cars;
+        this.c = c;
         updateJTable1(carTable);
         updateJTable2(rentedcarsTable);
         updateJTable3(returnedcarsTable);
@@ -49,22 +50,35 @@ public class customerAccount extends javax.swing.JFrame {
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
         
-        for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
+        for(int i=0; i < c.getRented().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {null,cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null};
+            
+            Object[] data = {null, c.getRented().get(i).getCar().getMake(), 
+                                  c.getRented().get(i).getCar().getModel(), 
+                                  c.getRented().get(i).getCar().getYear(), 
+                                  c.getRented().get(i).getRentDate()};
             tModel.addRow(data);
         }
     }
+    
     private void updateJTable3(javax.swing.JTable jtable){
         DefaultTableModel tModel = (DefaultTableModel) jtable.getModel();
         for(int j=tModel.getRowCount()-1; j>-1; j--)
             tModel.removeRow(j);
         
-        for(int i=0; i < cars.size(); i++)//for(int i=0; i < cars.size(); i++)
+        for(int i=0; i < c.getReturned().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
-            Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null,null};
+            //Object[] data = {cars.get(i).getID(), cars.get(i).getMake(), cars.get(i).getModel(), cars.get(i).getYear(),null,null};
+            Object[] data = {c.getReturned().get(i).getCar().getID(),
+                             c.getReturned().get(i).getCar().getMake(),
+                             c.getReturned().get(i).getCar().getModel(),
+                             c.getReturned().get(i).getCar().getYear(),
+                             c.getReturned().get(i).getRentDate(),
+                             c.getReturned().get(i).getReturnDate()};
+            
             tModel.addRow(data);
         }
+        
     }
     
     private void customerInfoLabel(){
