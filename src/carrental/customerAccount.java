@@ -110,7 +110,7 @@ public class customerAccount extends javax.swing.JFrame {
         returnedcarsTable = new javax.swing.JTable();
         customerName = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         searchTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +184,11 @@ public class customerAccount extends javax.swing.JFrame {
         customersTabFrame.addTab("Find Car", findcar_jPanel);
 
         jButton3.setText("Return Selected");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         rentedcarsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -302,16 +307,21 @@ public class customerAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButton2ActionPerformed
 
     private void rentSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentSelectedButtonActionPerformed
-        
-        for(int i = 0; i < this.carTable.getRowCount(); i++){
-            //if(this.carTable.getSelectedRows())
+        int selected[] = this.carTable.getSelectedRows();
+        for(int i = 0; i < this.carTable.getSelectedRows().length; i++){
+            
             Calendar cal = Calendar.getInstance();
             datePicker w = new datePicker(cal,"Enter Rent Date");
             w.setVisible(true);
-            c.newRental(cal, cars.get(i));
+            c.newRental(cal, cars.get(selected[i]));
             updateJTable2(rentedcarsTable);
         }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
     private ArrayList searchButtonAction(){
         ArrayList<Car> results = new ArrayList();
         String text = searchTextField2.getText();

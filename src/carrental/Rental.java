@@ -5,6 +5,7 @@
  */
 package carrental;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -33,11 +34,13 @@ public class Rental {
     }
     
     public String getReturnDate(){
-        return returnDate.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(returnDate.getTime());
     }
     
     public String getRentDate(){
-        return rentDate.toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(rentDate.getTime());
     }
     
     public void setReturnDate(Calendar ReturnDate){
