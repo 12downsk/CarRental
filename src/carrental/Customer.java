@@ -36,19 +36,28 @@ public class Customer {
         return this.address;
     }
     
-    public void newRental(Calendar rentDate, Calendar returnDate, Car c, Status status)
+    public void newRental(Calendar rentDate, Calendar returnDate, Car c)
     {
-        rentals.add(new Rental(rentDate,returnDate,status, c));
+        Enum status = Status.RENTED;
+        rentals.add(new Rental(rentDate,status, c));
     }
     
     public ArrayList<Rental> getRented()
     {
-        
-        return rentals;
+        ArrayList<Rental> rented = new ArrayList();
+        for(int i=0;i<rentals.size();i++){
+            if(rentals.get(i).getStatus() == Status.RENTED)
+                rented.add(rentals.get(i));
+        }
+        return rented;
     }
     
     public ArrayList<Rental> getReturned(){
-        
+        ArrayList<Rental> returned = new ArrayList();
+        for(int i=0;i<rentals.size();i++){
+            if(rentals.get(i).getStatus() == Status.RETURNED)
+                returned.add(rentals.get(i));
+        }
         return rentals;
     }
     

@@ -6,6 +6,7 @@
 package carrental;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,7 +55,7 @@ public class customerAccount extends javax.swing.JFrame {
         for(int i=0; i < c.getRented().size(); i++)//for(int i=0; i < cars.size(); i++)
         {
             
-            Object[] data = {null, c.getRented().get(i).getCar().getMake(), 
+            Object[] data = {null,c.getRented().get(i).getCar().getMake(), 
                                   c.getRented().get(i).getCar().getModel(), 
                                   c.getRented().get(i).getCar().getYear(), 
                                   c.getRented().get(i).getRentDate()};
@@ -304,8 +305,14 @@ public class customerAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButton2ActionPerformed
 
     private void rentSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentSelectedButtonActionPerformed
-        // TODO add your handling code here:
         
+        for(int i = 0; i < this.carTable.getSelectedRows().length; i++){
+            Calendar cal = Calendar.getInstance();
+            datePicker w = new datePicker(cal,"Enter Rent Date");
+            w.setVisible(true);
+            c.newRental(cal, null, cars.get(i));
+            updateJTable2(rentedcarsTable);
+        }
     }//GEN-LAST:event_rentSelectedButtonActionPerformed
 
     /**

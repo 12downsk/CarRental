@@ -17,17 +17,11 @@ public class Rental {
     private Enum status;
     private Car c;
     
-    public Rental(Calendar rentDate, Calendar returnDate, Enum status, Car c)
+    public Rental(Calendar rentDate, Enum status, Car c)
     {
         this.rentDate = rentDate;
-        this.returnDate = returnDate;
         this.status = status;
         this.c = c;
-    }
-    
-    public void changeReturnDate(Calendar newReturnDate)
-    {
-                
     }
     
     public Enum getStatus(){
@@ -44,6 +38,10 @@ public class Rental {
     
     public String getRentDate(){
         return rentDate.toString();
+    }
+    
+    public void setReturnDate(Calendar ReturnDate){
+        this.returnDate = ReturnDate;
     }
     
     
